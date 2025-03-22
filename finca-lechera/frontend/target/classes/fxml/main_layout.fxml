@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.fincalechera.ui.controller.MainController"
+      spacing="10" styleClass="main-container">
+
+    <!-- Barra de menú -->
+    <MenuBar>
+        <Menu text="Archivo">
+            <MenuItem text="Exportar Excel" onAction="#handleExportExcel"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="Salir" onAction="#handleExit"/>
+        </Menu>
+        <Menu text="Ayuda">
+            <MenuItem text="Acerca de" onAction="#handleAbout"/>
+        </Menu>
+    </MenuBar>
+
+    <!-- Contenedor principal -->
+    <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+        <!-- Pestaña de Vacas -->
+        <Tab text="Gestión de Vacas">
+            <VBox spacing="10" styleClass="content-container">
+                <!-- Barra de herramientas para Vacas -->
+                <HBox spacing="10" styleClass="toolbar">
+                    <Button text="Nueva Vaca" onAction="#handleNewCow" styleClass="btn-primary"/>
+                    <Button text="Editar" onAction="#handleEditCow" styleClass="btn-secondary"/>
+                    <Button text="Eliminar" onAction="#handleDeleteCow" styleClass="btn-danger"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="searchCowField" promptText="Buscar vaca..." styleClass="search-field"/>
+                </HBox>
+
+                <!-- Tabla de Vacas -->
+                <TableView fx:id="cowTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="cowIdColumn" text="ID" visible="false"/>
+                        <TableColumn fx:id="cowNumeroIdentificacionColumn" text="Número"/>
+                        <TableColumn fx:id="cowNombreColumn" text="Nombre"/>
+                        <TableColumn fx:id="cowRazaColumn" text="Raza"/>
+                        <TableColumn fx:id="cowEdadColumn" text="Edad"/>
+                        <TableColumn fx:id="cowFechaNacimientoColumn" text="Fecha Nacimiento"/>
+                        <TableColumn fx:id="cowEstadoColumn" text="Estado"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- Pestaña de Producción -->
+        <Tab text="Registro de Producción">
+            <VBox spacing="10" styleClass="content-container">
+                <!-- Barra de herramientas para Producción -->
+                <HBox spacing="10" styleClass="toolbar">
+                    <Button text="Nuevo Registro" onAction="#handleNewProduction" styleClass="btn-primary"/>
+                    <Button text="Editar" onAction="#handleEditProduction" styleClass="btn-secondary"/>
+                    <Button text="Eliminar" onAction="#handleDeleteProduction" styleClass="btn-danger"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <ComboBox fx:id="filterCowComboBox" promptText="Filtrar por vaca"/>
+                    <ComboBox fx:id="filterTypeComboBox" promptText="Tipo de producción"/>
+                    <DatePicker fx:id="filterDatePicker" promptText="Fecha"/>
+                </HBox>
+
+                <!-- Tabla de Producción -->
+                <TableView fx:id="productionTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="productionIdColumn" text="ID" visible="false"/>
+                        <TableColumn fx:id="productionCowInfoColumn" text="Vaca"/>
+                        <TableColumn fx:id="productionFechaColumn" text="Fecha"/>
+                        <TableColumn fx:id="productionCantidadColumn" text="Cantidad (L)"/>
+                        <TableColumn fx:id="productionTipoColumn" text="Tipo"/>
+                    </columns>
+                </TableView>
+
+                <!-- Panel de estadísticas -->
+                <GridPane styleClass="stats-panel" hgap="20" vgap="10">
+                    <Label text="Total Diario:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <Label fx:id="totalDiarioLabel" text="0.00 L" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    
+                    <Label text="Total Semanal:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                    <Label fx:id="totalSemanalLabel" text="0.00 L" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                    
+                    <Label text="Total Mensual:" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+                    <Label fx:id="totalMensualLabel" text="0.00 L" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+                </GridPane>
+            </VBox>
+        </Tab>
+    </TabPane>
+
+    <!-- Barra de estado -->
+    <HBox styleClass="status-bar">
+        <Label fx:id="statusLabel" text="Listo"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ProgressIndicator fx:id="progressIndicator" visible="false"/>
+    </HBox>
+
+</VBox>
