@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.fincalechera.ui.controller.ProductionFormController"
+      spacing="10" styleClass="form-container">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Hidden ID field -->
+    <TextField fx:id="idField" visible="false" managed="false"/>
+
+    <!-- Error Label -->
+    <Label fx:id="errorLabel" styleClass="error-label" 
+           wrapText="true" visible="false" managed="false"/>
+
+    <!-- Form Grid -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100" prefWidth="150"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <!-- Vaca -->
+        <Label text="Vaca:" 
+               styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="cowComboBox" 
+                 promptText="Seleccione una vaca"
+                 maxWidth="Infinity"
+                 GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <!-- Fecha -->
+        <Label text="Fecha:" 
+               styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <DatePicker fx:id="fechaDatePicker" 
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <!-- Hora -->
+        <Label text="Hora:" 
+               styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ComboBox fx:id="horaComboBox" 
+                     promptText="Hora"
+                     prefWidth="100"/>
+            <ComboBox fx:id="minutoComboBox" 
+                     promptText="Minuto"
+                     prefWidth="100"/>
+        </HBox>
+
+        <!-- Tipo de Producción -->
+        <Label text="Tipo de Producción:" 
+               styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <ComboBox fx:id="tipoProduccionComboBox" 
+                 promptText="Seleccione el tipo"
+                 maxWidth="Infinity"
+                 GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <!-- Cantidad -->
+        <Label text="Cantidad (L):" 
+               styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Spinner fx:id="cantidadSpinner" 
+                 GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+        <!-- Observaciones -->
+        <Label text="Observaciones:" 
+               styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <TextArea fx:id="observacionesArea" 
+                 promptText="Ingrese observaciones (opcional)"
+                 wrapText="true"
+                 prefRowCount="3"
+                 GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    </GridPane>
+
+    <!-- Statistics Panel -->
+    <VBox spacing="5" styleClass="stats-panel">
+        <Label text="Estadísticas de la Vaca Seleccionada" 
+               styleClass="summary-title"/>
+        <GridPane hgap="20" vgap="5">
+            <columnConstraints>
+                <ColumnConstraints minWidth="150"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <Label text="Última Producción:" 
+                   GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label fx:id="ultimaProduccionLabel" text="0.00 L"
+                   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <Label text="Promedio Diario:" 
+                   GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Label fx:id="promedioDiarioLabel" text="0.00 L"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <Label text="Total del Día:" 
+                   GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Label fx:id="totalDiaLabel" text="0.00 L"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        </GridPane>
+    </VBox>
+
+    <!-- Buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" 
+                onAction="#handleCancel" 
+                styleClass="btn-secondary"/>
+        <Button text="Guardar" 
+                onAction="#handleSave" 
+                styleClass="btn-primary"
+                defaultButton="true"/>
+    </HBox>
+
+</VBox>
