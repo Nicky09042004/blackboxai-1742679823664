@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.fincalechera.ui.controller.ProductionFormController"
+      spacing="15" styleClass="form-container">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <GridPane hgap="10" vgap="10">
+        <!-- Campo oculto para ID -->
+        <TextField fx:id="idField" visible="false" managed="false"/>
+
+        <!-- Fila 1 -->
+        <Label text="Vaca:" styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="cowComboBox" promptText="Seleccione la vaca"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0"
+                  GridPane.hgrow="ALWAYS"/>
+
+        <!-- Fila 2 -->
+        <Label text="Fecha:" styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <DatePicker fx:id="fechaDatePicker" promptText="Seleccione la fecha"/>
+            <ComboBox fx:id="horaComboBox" promptText="Hora"/>
+            <ComboBox fx:id="minutoComboBox" promptText="Minuto"/>
+        </HBox>
+
+        <!-- Fila 3 -->
+        <Label text="Tipo de Producción:" styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <ComboBox fx:id="tipoProduccionComboBox" promptText="Seleccione el tipo"
+                  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <!-- Fila 4 -->
+        <Label text="Cantidad (Litros):" styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <HBox spacing="10" alignment="CENTER_LEFT"
+              GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Spinner fx:id="cantidadSpinner" editable="true">
+                <valueFactory>
+                    <SpinnerValueFactory.DoubleSpinnerValueFactory 
+                        min="0.0" max="100.0" initialValue="0.0" amountToStepBy="0.5"/>
+                </valueFactory>
+            </Spinner>
+            <Label text="litros"/>
+        </HBox>
+
+        <!-- Fila 5 -->
+        <Label text="Observaciones:" styleClass="form-label"
+               GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <TextArea fx:id="observacionesArea" promptText="Ingrese observaciones adicionales"
+                  wrapText="true" prefRowCount="3"
+                  GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    </GridPane>
+
+    <!-- Panel de Resumen -->
+    <VBox spacing="5" styleClass="summary-panel">
+        <Label text="Resumen de Producción" styleClass="summary-title"/>
+        <GridPane hgap="10" vgap="5">
+            <Label text="Última producción:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label fx:id="ultimaProduccionLabel" text="N/A" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            
+            <Label text="Promedio diario:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Label fx:id="promedioDiarioLabel" text="0.00 L" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <Label text="Total del día:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Label fx:id="totalDiaLabel" text="0.00 L" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        </GridPane>
+    </VBox>
+
+    <!-- Botones de acción -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" onAction="#handleCancel" styleClass="btn-secondary"/>
+        <Button text="Guardar" onAction="#handleSave" styleClass="btn-primary" defaultButton="true"/>
+    </HBox>
+
+    <!-- Mensajes de error -->
+    <Label fx:id="errorLabel" styleClass="error-label" visible="false" managed="false"
+           textFill="RED" wrapText="true"/>
+</VBox>
