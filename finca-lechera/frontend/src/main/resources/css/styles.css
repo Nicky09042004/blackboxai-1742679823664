@@ -1,0 +1,206 @@
+/* Estilos generales */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Contenedor principal */
+.main-container {
+    -fx-background-color: white;
+    -fx-padding: 10;
+}
+
+/* Barra de menú */
+.menu-bar {
+    -fx-background-color: #2c3e50;
+}
+
+.menu-bar .label {
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-padding: 5 15;
+}
+
+/* Contenedor de contenido */
+.content-container {
+    -fx-padding: 15;
+    -fx-spacing: 10;
+}
+
+/* Barra de herramientas */
+.toolbar {
+    -fx-padding: 10;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Botones */
+.button {
+    -fx-padding: 8 15;
+    -fx-cursor: hand;
+    -fx-background-radius: 4;
+}
+
+.btn-primary {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #0056b3;
+}
+
+.btn-secondary {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #545b62;
+}
+
+.btn-danger {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #c82333;
+}
+
+/* Campos de búsqueda */
+.search-field {
+    -fx-padding: 5 10;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #ced4da;
+    -fx-background-color: white;
+    -fx-min-width: 200;
+}
+
+/* Tablas */
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 10 5;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #495057;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent #dee2e6 transparent transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #007bff22;
+}
+
+/* Formularios */
+.form-container {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.form-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+.text-field, .text-area, .combo-box {
+    -fx-padding: 5 10;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-color: #ced4da;
+    -fx-background-color: white;
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused {
+    -fx-border-color: #80bdff;
+    -fx-effect: dropshadow(gaussian, rgba(0,123,255,0.25), 3, 0, 0, 0);
+}
+
+/* Panel de estadísticas */
+.stats-panel {
+    -fx-padding: 15;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+/* Panel de resumen */
+.summary-panel {
+    -fx-padding: 15;
+    -fx-background-color: #e9ecef;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.summary-title {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+/* Barra de estado */
+.status-bar {
+    -fx-padding: 5 10;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Mensajes de error */
+.error-label {
+    -fx-text-fill: #dc3545;
+    -fx-padding: 5 0;
+}
+
+/* Spinner personalizado */
+.spinner {
+    -fx-pref-width: 120;
+}
+
+/* DatePicker personalizado */
+.date-picker {
+    -fx-pref-width: 150;
+}
+
+/* Efectos de hover */
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+/* Animaciones */
+.button {
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+/* Estilos para diálogos */
+.dialog-pane {
+    -fx-background-color: white;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #f8f9fa;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-min-width: 80;
+}
