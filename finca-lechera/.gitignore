@@ -1,0 +1,88 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code
+.vscode/
+.settings/
+.project
+.classpath
+
+# Spring Boot
+*.log
+logs/
+spring.log
+
+# JavaFX
+*.jfxbuild
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Application specific
+data.xlsx
+*.xlsx
+*.xls
+
+# Compiled class file
+*.class
+
+# Log files
+*.log
+log/
+logs/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
